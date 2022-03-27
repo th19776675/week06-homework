@@ -43,9 +43,10 @@ p {
     margin: 10px;
 }
 
-/* Class Selectors */
+/* ID Selectors */
 
-.outer-wrapper {
+
+#outer-wrapper {
     width: 100vw;
     height: 100vh;
     display: flex;
@@ -53,57 +54,64 @@ p {
     align-items: center;
 }
 
-.inner-wrapper {
-    width: 1000px;
+#inner-wrapper {
+    width: 1200px;
     background: green;
     border-radius: 20px 20px 0 0;
 }
 
-.container {
+#container {
     display: flex;
     width: 100%;
     flex-direction: row;
 }
 
-.city-search {
+#city-search {
     width: 30%;
     padding: 10px;
     background: coral;
 }
 
-.search-input {
-    height: 40px;
-}
-
-.city-results {
+#city-results {
     width: 70%;
     padding: 10px;
     background: grey;
 }
 
-.main-forecast {
+#main-forecast {
     background: lightblue;
     padding: 5px;
 }
 
-.future-forecast {
+#future-forecast {
     background: lightgreen;
     padding: 5px;
 }
 
-.forecast-row {
+#forecast-row {
     display: flex;
     flex-direction: row;
 }
 
-.saved-searches {
-    height: 190px;
+#saved-searches {
+    height: 210px;
     overflow-y: auto;
+}
+
+/* Class Selectors */
+
+
+.search-input {
+    height: 40px;
 }
 
 .card-container {
     width: 20%;
     padding: 5px;
+}
+
+.inline {
+    display: inline;
 }
 
 .forecast-card {
