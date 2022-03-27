@@ -1,0 +1,118 @@
+/* Element Selectors */
+
+body {
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 1rem;
+}
+
+header {
+    background: red;
+    padding: 20px;
+    border-radius: 20px 20px 0 0;
+}
+
+h1 {
+    text-align: center;
+    font-size: 150%;
+    font-weight: bold;
+}
+
+h2 {
+    font-size: 150%;
+    font-weight: bolder;
+    margin-top: 10px;
+
+}
+
+h3{
+    font-size: 125%;
+    font-weight: bolder;
+}
+
+hr {
+    width: 100%;
+}
+
+input, button {
+    width: 100%;
+    margin: 5px 0;
+    height: 30px;
+}
+
+p {
+    margin: 10px;
+}
+
+/* Class Selectors */
+
+.outer-wrapper {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.inner-wrapper {
+    width: 1000px;
+    background: green;
+    border-radius: 20px 20px 0 0;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+}
+
+.city-search {
+    width: 30%;
+    padding: 10px;
+    background: coral;
+}
+
+.search-input {
+    height: 40px;
+}
+
+.city-results {
+    width: 70%;
+    padding: 10px;
+    background: grey;
+}
+
+.main-forecast {
+    background: lightblue;
+    padding: 5px;
+}
+
+.future-forecast {
+    background: lightgreen;
+    padding: 5px;
+}
+
+.forecast-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.saved-searches {
+    height: 190px;
+    overflow-y: auto;
+}
+
+.card-container {
+    width: 20%;
+    padding: 5px;
+}
+
+.forecast-card {
+    background: lightcyan;
+    padding: 5px;
+}
+
+.clear-btn {
+    margin: 10px 0 0 0;
+}
+
+
