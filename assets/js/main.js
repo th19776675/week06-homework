@@ -5,6 +5,8 @@ const searchForm = document.querySelector("form")
 
 let savedSearches = document.querySelector("#saved-searches")
 
+const clearBtn = document.querySelector(".clear-btn")
+
 const mainTitle = document.querySelector("#main-forecast h2")
 const mainFields = document.querySelectorAll("#main-forecast p")
 
@@ -14,6 +16,7 @@ const tempFields = document.querySelectorAll(".temp")
 const windFields = document.querySelectorAll(".wind")
 const humidityFields = document.querySelectorAll(".humidity")
 const uvFields = document.querySelectorAll(".uv")
+const uvIndicator = document.querySelectorAll("span")
 
 let recentSearches = []
 
@@ -21,30 +24,44 @@ let recentSearches = []
 
 searchForm.addEventListener("submit", function(event){
     event.preventDefault()
-    getCoords(searchInput.value.trim())
-    searchList()
+    getCoords(searchInput.value.trim(), true)
     searchInput.value = ""
-
+    console.log(recentSearches)
 })   
+
+clearBtn.addEventListener("click", function(){
+    localStorage.clear()
+    while (savedSearches.firstChild) {
+        savedSearches.removeChild(savedSearches.lastChild)
+    }
+    recentSearches = []
+})
 
 function createSavedSearch(city) {
     let savedSearchBtn = document.createElement("button")
     savedSearchBtn.textContent = city
     savedSearches.appendChild(savedSearchBtn)
+    recentSearches.push(city)
+    localStorage.setItem("localSavedSearches", JSON.stringify(recentSearches))
 }                         
 
-function searchList() {
-    const savedBtns = document.querySelectorAll("#saved-searches button")
-    for (let i = 0; i < savedBtns.length; i++) {
-        recentSearches.push(savedBtns[i].textContent)
-        console.log(recentSearches)
-    }
-}
+savedSearches.addEventListener("click", function(event){
+    if (event.target.localName === "button") {
+        console.log(event.target)
+        getCoords(event.target.textContent, false)
+        searchInput.value = ""
+    }    
+})
 
 function callSearches() {
     if (JSON.parse(localStorage.getItem("localSavedSearches")) !== null) {
         recentSearches = JSON.parse(localStorage.getItem("localSavedSearches"))
-    }
+        for (let i = 0; i < recentSearches.length; i++){
+            let savedSearchBtn = document.createElement("button")
+            savedSearches.appendChild(savedSearchBtn)
+            savedSearchBtn.textContent = recentSearches[i]
+        }
+    } 
 }
 
 function capitalizeFirstLetter(string) {
@@ -69,7 +86,17 @@ function getConditions(currentConditions) {
     }
 }
 
-function getCoords(city) {
+function checkUV(UV) {
+    if (0 <= UV && UV <3) {
+        return "lightgreen"
+    } else if (3 <= UV && UV < 7) {
+        return "yellow"
+    } else {
+        return "red"
+    }
+}
+
+function getCoords(city, createCondition) {
     fetch("http://api.openweathermap.org/geo/1.0/direct?q=" + city + "&limit=1&appid=d322ae663fb727b202d40d6c138ddd30")
         .then(function (response) {
             if (response.ok) {
@@ -79,7 +106,9 @@ function getCoords(city) {
                         searchInput.placeholder = "This city is not in our database."
                         return;
                     } else {
-                        createSavedSearch(city)
+                        if (createCondition === true){
+                            createSavedSearch(city)
+                        }
                         fillWeather(data[0].lat, data[0].lon, city)
                         return
                     }
@@ -104,6 +133,8 @@ function fillWeather(lat, lon, title) {
                         windFields[i].textContent = `Wind: ${data.daily[i].wind_speed} MPH`
                         humidityFields[i].textContent = `Humidity: ${data.daily[i].humidity} %`
                         uvFields[i].textContent = `UV Index: ${data.daily[i].uvi}`
+                        uvIndicator[i].textContent = "•"
+                        uvIndicator[i].style.color = checkUV(data.daily[i].uvi)
                         conditionsFields[i].textContent = getConditions(data.daily[i].weather[0].id)
                     }
                 });
@@ -113,7 +144,7 @@ function fillWeather(lat, lon, title) {
         })
 }
 
-
+callSearches()
 
 
 

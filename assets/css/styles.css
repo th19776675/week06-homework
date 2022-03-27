@@ -43,6 +43,7 @@ p {
     margin: 10px;
 }
 
+
 /* ID Selectors */
 
 
@@ -121,6 +122,11 @@ p {
 
 .clear-btn {
     margin: 10px 0 0 0;
+}
+
+.uv {
+    margin: 0 0 10px 10px;
+    display: inline-block
 }
 
 
