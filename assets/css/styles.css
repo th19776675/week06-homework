@@ -1,20 +1,32 @@
+/* Declare Variables */
+:root {
+    --main: #34495E;
+    --bg: #ECF0F1;
+    --accent: #E74C3C;
+    --accent2:#2C3E50;
+}
+
+
 /* Element Selectors */
 
 body {
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 1rem;
+    /* background: var(--bg); */
+    color: var(--main)
 }
 
 header {
-    background: red;
+    background: var(--main);
     padding: 20px;
-    border-radius: 20px 20px 0 0;
+    border-radius: 5px 5px 0 0;
 }
 
 h1 {
     text-align: center;
     font-size: 150%;
     font-weight: bold;
+    color: var(--bg)
 }
 
 h2 {
@@ -31,6 +43,7 @@ h3{
 
 hr {
     width: 100%;
+    border: solid 1px var(--main)
 }
 
 input, button {
@@ -43,6 +56,11 @@ p {
     margin: 10px;
 }
 
+span {
+    color: var(--bg);
+    padding: 0 10px;
+    border-radius: 5px;
+}
 
 /* ID Selectors */
 
@@ -57,36 +75,59 @@ p {
 
 #inner-wrapper {
     width: 1200px;
-    background: green;
-    border-radius: 20px 20px 0 0;
+    background: rgb(255, 255, 255);
+    border: solid var(--main) 4px;
+    border-radius: 10px;
+    position: absolute;
 }
+
 
 #container {
     display: flex;
     width: 100%;
     flex-direction: row;
+    
 }
 
 #city-search {
-    width: 30%;
+    width: 20%;
     padding: 10px;
-    background: coral;
+    border-radius: 0 0 10px 10px;
+    background: var(--bg);
+    border-right: solid 4px var(--main);
+    position: relative;
 }
 
 #city-results {
-    width: 70%;
+    width: 80%;
     padding: 10px;
-    background: grey;
+    border-radius: 0 0 10px 0;
 }
 
 #main-forecast {
-    background: lightblue;
-    padding: 5px;
+    padding: 10px;
+    border: 2px solid var(--main);
+    border-radius: 10px;
+    background-color: var(--bg);
+    display: flex;
+}
+
+#main-info{
+    width: 400%;
+}
+
+#main-info h2{
+    border-radius: 5px;
+    padding: 0 10px; 
 }
 
 #future-forecast {
-    background: lightgreen;
     padding: 5px;
+}
+
+#future-forecast h2 {
+    padding-bottom: 5px;
+    margin-top: 20px;
 }
 
 #forecast-row {
@@ -95,8 +136,20 @@ p {
 }
 
 #saved-searches {
-    height: 210px;
+    height: 220px;
     overflow-y: auto;
+}
+
+#saved-searches button {
+    background: var(--bg);
+    border: 1px dashed var(--main);
+    border-radius: 5px;
+    color: var(--main)
+}
+
+#saved-searches button:hover {
+    border: 1px solid var(--main);
+    background: #f1f5f7
 }
 
 /* Class Selectors */
@@ -104,11 +157,15 @@ p {
 
 .search-input {
     height: 40px;
+    border-radius: 10px;
+    border: 1px solid var(--main);
+    padding: 0 10px;
 }
 
 .card-container {
     width: 20%;
     padding: 5px;
+
 }
 
 .inline {
@@ -116,8 +173,10 @@ p {
 }
 
 .forecast-card {
-    background: lightcyan;
-    padding: 5px;
+    background: var(--bg);
+    padding: 10px;
+    border: 2px solid var(--main);
+    border-radius: 10px;
 }
 
 .clear-btn {
@@ -128,5 +187,35 @@ p {
     margin: 0 0 10px 10px;
     display: inline-block
 }
+
+.btn {
+    background-color: var(--accent);
+    color: var(--bg);
+    border: 0;
+    border-radius: 5px;
+    box-shadow: 3px 3px var(--accent2);
+}
+
+.btn:hover {
+    transform: translate(1px, 1px);
+    box-shadow: 2px 2px var(--accent2);
+}
+
+.close-btn {
+    position: absolute;
+    width: 17px;
+    right: -10px;
+    top: 45%;
+}
+
+.widget-btn {
+    position: absolute;
+    width: 35px;
+    height: 20px;
+    bottom: -15px;
+    left: 49%; 
+    border-radius: 8px;
+}
+
 
 

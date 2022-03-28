@@ -6,40 +6,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/reset.css">
     <link rel="stylesheet" href="assets/css/styles.css">
-    <title>Weather Dashboard</title>
+    <title>Weather Widget</title>
 </head>
 <body>
     <div id="outer-wrapper">
         <div id="inner-wrapper">
-            <header>
-                <h1>Weather Dashboard</h1>
+            <header id="inner-wrapper-header">
+                <h1>Weather Widget</h1>
             </header>
-            
+            <button class="btn widget-btn">=</button>
+
             <div id="container">
                 <aside id="city-search">
-                    <article id="search">
-                        <h3>Search For A City:</h3>
-                        <form>
-                            <input type="text" class="search-input">
-                            <input type="submit" value="Submit" class="search-submit">
-                        </form>
-                    </article>
-                    <hr>
-                    <article id="saved-searches">
-                    </article>
-                    <button class="clear-btn">Clear Searches</button>
+                    <button class="btn close-btn">||</button>
+                    <div id="search-wrapper">
+                        <article id="search">
+                            <h3>Search For A City:</h3>
+                            <form>
+                                <input type="text" class="search-input">
+                                <input type="submit" value="Submit" class="btn">
+                            </form>
+                        </article>
+                        <hr>
+                        <article id="saved-searches">
+                        </article>
+                        <button class="clear-btn btn">Clear Searches</button>   
+                    </div>
                 </aside>
     
                 <main id="city-results">
                     <section id="main-forecast">
-                        <h2 class="inline">_______ </h2>
-                        <h3 class="inline date">00/00/00 </h3>
-                        <p class="inline conditions">🌤</p>
-                        <p class="temp">Temp: </p>
-                        <p class="wind">Wind: </p>
-                        <p class="humidity">Humidity: </p>
-                        <p class="uv">UV Index: </p>
-                        <span></span>
+                        <div id="main-info">
+                            <h2 class="inline">_______ </h2>
+                            <h3 class="inline date">00/00/00 </h3>
+                            <p class="inline conditions">🌤</p>
+                            <p class="temp">Temp: </p>
+                            <p class="wind">Wind: </p>
+                            <p class="humidity">Humidity: </p>
+                            <p class="uv">UV Index: </p>
+                            <span></span>
+                        </div>
+                    <button class="refresh-btn btn">Clear</button>
                         
                     </section>
                     <section id="future-forecast">
@@ -47,8 +54,8 @@
                         <div id="forecast-row">
                             <div class="card-container">
                                 <article class="forecast-card">
-                                    <h3 class="date">00/00/00 </h3>
-                                    <p class="conditions">🌤</p>
+                                    <h3 class="inline date">00/00/00 </h3>
+                                    <p class="inline conditions">🌤</p>
                                     <p class="temp">Temp: </p>
                                     <p class="wind">Wind: </p>
                                     <p class="humidity">Humidity: </p>
@@ -58,8 +65,8 @@
                             </div>
                             <div class="card-container">
                                 <article class="forecast-card">
-                                    <h3 class="date">00/00/00 </h3>
-                                    <p class="conditions">🌤</p>
+                                    <h3 class="inline date">00/00/00 </h3>
+                                    <p class="inline conditions">🌤</p>
                                     <p class="temp">Temp: </p>
                                     <p class="wind">Wind: </p>
                                     <p class="humidity">Humidity: </p>
@@ -69,8 +76,8 @@
                             </div>
                             <div class="card-container">
                                 <article class="forecast-card">
-                                    <h3 class="date">00/00/00 </h3>
-                                    <p class="conditions">🌤</p>
+                                    <h3 class="inline date">00/00/00 </h3>
+                                    <p class="inline conditions">🌤</p>
                                     <p class="temp">Temp: </p>
                                     <p class="wind">Wind: </p>
                                     <p class="humidity">Humidity: </p>
@@ -80,8 +87,8 @@
                             </div>
                             <div class="card-container">
                                 <article class="forecast-card">
-                                    <h3 class="date">00/00/00 </h3>
-                                    <p class="conditions">🌤</p>
+                                    <h3 class="inline date">00/00/00 </h3>
+                                    <p class="inline conditions">🌤</p>
                                     <p class="temp">Temp: </p>
                                     <p class="wind">Wind: </p>
                                     <p class="humidity">Humidity: </p>
@@ -91,8 +98,8 @@
                             </div>
                             <div class="card-container">
                                 <article class="forecast-card">
-                                    <h3 class="date">00/00/00 </h3>
-                                    <p class="conditions">🌤</p>
+                                    <h3 class="inline date">00/00/00 </h3>
+                                    <p class="inline conditions">🌤</p>
                                     <p class="temp">Temp: </p>
                                     <p class="wind">Wind: </p>
                                     <p class="humidity">Humidity: </p>
