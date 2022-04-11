@@ -106,7 +106,7 @@ function checkUV(UV) {
 }
 
 function getCoords(city, createCondition) {
-    fetch("http://api.openweathermap.org/geo/1.0/direct?q=" + city + "&limit=1&appid=d322ae663fb727b202d40d6c138ddd30")
+    fetch("https://api.openweathermap.org/geo/1.0/direct?q=" + city + "&limit=1&appid=d322ae663fb727b202d40d6c138ddd30")
         .then(function (response) {
             if (response.ok) {
                 searchInput.placeholder = ""
